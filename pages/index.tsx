@@ -16,7 +16,6 @@ export default function Home() {
         isp: "-"
     })
 
-
     const MapDisplay = React.useMemo(() => dynamic(
         () => import('../components/MapDisplay'),
         {
@@ -25,25 +24,21 @@ export default function Home() {
         }
     ), [])
 
+
     const searchIPAddress = async (query?: string) => {
-        const url = "http://ip-api.com/json" + (typeof query === "undefined" ? "" : "/" + query)
+        const url = "https://ipapi.co" + (typeof query === "undefined" ? "" : "/" + query) + "/json/"
         const response = await fetch(url)
         const data = await response.json()
 
-        if (data["status"] !== "success") {
-            alert("Something went wrong, please try again.")
-            return
-        }
-
         setResultData({
-            IPAddress: data["query"],
-            location: [data["city"] + ",", data["zip"], data["country"]].join(" "),
+            IPAddress: data["ip"],
+            location: [data["city"] + ",", data["postal"], data["country_name"]].join(" "),
             timezone: data["timezone"],
-            isp: data["isp"]
+            isp: data["org"]
         })
 
-        setLatitude(data["lat"])
-        setLongitude(data["lon"])
+        setLatitude(data["latitude"])
+        setLongitude(data["longitude"])
     }
 
     return (
