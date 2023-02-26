@@ -31,13 +31,13 @@ function AutomaticRecentering(props: {
     longitude: number
     hasLocation: boolean
 }) {
-    const map = useMap();
+    const map = useMap()
 
     useEffect(() => {
-        if (!props.hasLocation) return
+        if (props.hasLocation) {
+            map.setView([props.latitude, props.longitude], 10)
+        }
+    }, [props.latitude, props.longitude, props.hasLocation, map])
 
-        map.setView([props.latitude, props.longitude], 10);
-    }, [props.latitude, props.longitude, props.hasLocation, map]);
-
-    return null;
+    return null
 }
