@@ -25,7 +25,6 @@ export default function Home() {
         }
     ), [])
 
-
     const searchIPAddress = async (query?: string) => {
         try {
             const url = "https://ipapi.co" + (typeof query === "undefined" ? "" : "/" + query) + "/json/"

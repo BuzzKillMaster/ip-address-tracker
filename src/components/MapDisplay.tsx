@@ -30,7 +30,7 @@ function AutomaticRecentering(props: {
     longitude: number
     hasLocation: boolean
 }) {
-   useMap().setView([props.latitude, props.longitude], props.hasLocation ? 10 : 3)
+    useMap().setView([props.latitude, props.longitude], props.hasLocation ? 10 : 3)
 
     return null
 }
