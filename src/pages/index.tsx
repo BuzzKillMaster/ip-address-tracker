@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useMemo} from "react";
 import IPAddressSearchField from "@/components/IPAddressSearchField";
 import ResultInformationContainer from "@/components/ResultInformationContainer";
-import MapDisplay from "@/components/MapDisplay";
 import dynamic from "next/dynamic";
+import Coordinates from "@/types/Coordinates";
 
 export default function Home() {
-    const [latitude, setLatitude] = useState(0)
-    const [longitude, setLongitude] = useState(0)
+    const [coordinates, setCoordinates] = useState<Coordinates>({
+        latitude: 0,
+        longitude: 0
+    })
 
     const [resultData, setResultData] = useState({
         IPAddress: "-",
@@ -15,10 +17,9 @@ export default function Home() {
         isp: "-"
     })
 
-    const MapDisplay = React.useMemo(() => dynamic(
-        () => import('../components/MapDisplay'),
+    const MapDisplay = useMemo(() => dynamic(
+        () => import('@/components/MapDisplay'),
         {
-            loading: () => <p>A map is loading</p>,
             ssr: false
         }
     ), [])
@@ -41,8 +42,10 @@ export default function Home() {
                 isp: data["org"]
             })
 
-            setLatitude(data["latitude"])
-            setLongitude(data["longitude"])
+            setCoordinates({
+                latitude: data["latitude"],
+                longitude: data["longitude"],
+            })
         } catch (e) {
             alert("Something went wrong, please try again.")
         }
@@ -59,7 +62,7 @@ export default function Home() {
                 <ResultInformationContainer data={resultData}/>
             </div>
 
-            <MapDisplay latitude={latitude} longitude={longitude}/>
+            <MapDisplay {...coordinates}/>
         </main>
     )
 }

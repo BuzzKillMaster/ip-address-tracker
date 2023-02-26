@@ -3,11 +3,9 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
 import {useEffect} from "react";
+import Coordinates from "@/types/Coordinates";
 
-export default function MapDisplay(props: {
-    latitude: number
-    longitude: number
-}) {
+export default function MapDisplay(props: Coordinates) {
     const hasLocation = props.latitude !== 0 || props.longitude !== 0
 
     return (
@@ -23,7 +21,7 @@ export default function MapDisplay(props: {
                 </Popup>
             </Marker>}
             <ZoomControl position={"bottomleft"}/>
-            <AutomaticRecentering latitude={props.latitude} longitude={props.longitude} hasLocation={hasLocation}/>
+            <AutomaticRecentering hasLocation={hasLocation} {...props}/>
         </MapContainer>
     )
 }
