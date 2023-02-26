@@ -1,5 +1,5 @@
 import React from "react";
-import InformationPiece from "./InformationPiece";
+import InformationPiece from "@/components/InformationPiece";
 
 export default function ResultInformationContainer(props: {
     data: {

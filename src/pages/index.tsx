@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import React, {useState} from "react";
-import IPAddressSearchField from "../components/IPAddressSearchField";
-import ResultInformationContainer from "../components/ResultInformationContainer";
-import MapDisplay from "../components/MapDisplay";
+import IPAddressSearchField from "@/components/IPAddressSearchField";
+import ResultInformationContainer from "@/components/ResultInformationContainer";
+import MapDisplay from "@/components/MapDisplay";
 import dynamic from "next/dynamic";
 
 export default function Home() {

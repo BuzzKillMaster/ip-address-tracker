@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
 import {useEffect} from "react";
+
 export default function MapDisplay(props: {
     latitude: number
     longitude: number
@@ -38,7 +39,7 @@ function AutomaticRecentering(props: {
         if (!props.hasLocation) return
 
         map.setView([props.latitude, props.longitude], 10);
-    }, [props.latitude, props.longitude]);
+    }, [props.latitude, props.longitude, props.hasLocation, map]);
 
     return null;
 }

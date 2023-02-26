@@ -1,4 +1,3 @@
-import {IoIosArrowDropright} from "react-icons/io";
 import React, {FormEvent, useState} from "react";
 
 export default function IPAddressSearchField(props: {
