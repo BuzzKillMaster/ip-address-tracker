@@ -16,7 +16,6 @@ export default function IPAddressSearchField(props: {
             <form className={"flex flex-col lg:flex-row items-center lg:items-stretch lg:justify-center"} onSubmit={handleSubmit} >
                 <input onChange={(event) => setInputQuery(event.target.value)} className={"px-4 py-3 outline-none rounded w-96 border-none mr-2"} type={"text"} placeholder={"Search for any IP address or domain"}/>
                 <button className={"bg-green-600 hover:bg-green-500 text-white rounded px-8 py-2 mt-6 lg:mt-0"}>
-                    {/*<IoIosArrowDropright className={"text-2xl"}/>*/}
                     <p className={"font-semibold"}>Search</p>
                 </button>
             </form>
