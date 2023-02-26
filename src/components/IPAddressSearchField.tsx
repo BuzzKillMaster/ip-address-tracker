@@ -1,7 +1,7 @@
 import React, {FormEvent, useState} from "react";
 
 export default function IPAddressSearchField(props: {
-    clickHandler: (name?: string) => void
+    clickHandler: (query?: string) => void
 }) {
     const [inputQuery, setInputQuery] = useState("")
 
