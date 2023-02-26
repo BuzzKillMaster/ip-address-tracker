@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import React, {useState} from "react";
 import IPAddressSearchField from "@/components/IPAddressSearchField";
 import ResultInformationContainer from "@/components/ResultInformationContainer";
@@ -50,26 +49,17 @@ export default function Home() {
     }
 
     return (
-        <>
-            <Head>
-                <title>IP Address Tracker</title>
-                <meta name="description"
-                      content="Find out where your IP address is currently pointing to, track the location of someone else, or just test if your VPN is actually working."/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <main className={"bg-gray-50 min-h-screen w-full flex flex-col items-center"}>
-                <div className={"pt-24 text-center w-full relative special-background"}>
-                    <div className={"absolute h-full w-full bg-slate-900 top-0 opacity-50 z-0"}></div>
-                    <div className={"relative z-10 -mb-56 md:-mb-40 lg:-mb-24"}>
-                        <h1 className={"text-5xl font-bold text-white"}>IP Address Tracker</h1>
-                        <IPAddressSearchField clickHandler={searchIPAddress}/>
-                    </div>
-                    <ResultInformationContainer data={resultData}/>
+        <main className={"bg-gray-50 min-h-screen w-full flex flex-col items-center"}>
+            <div className={"pt-24 text-center w-full relative special-background"}>
+                <div className={"absolute h-full w-full bg-slate-900 top-0 opacity-50 z-0"}></div>
+                <div className={"relative z-10 -mb-56 md:-mb-40 lg:-mb-24"}>
+                    <h1 className={"text-5xl font-bold text-white"}>IP Address Tracker</h1>
+                    <IPAddressSearchField clickHandler={searchIPAddress}/>
                 </div>
+                <ResultInformationContainer data={resultData}/>
+            </div>
 
-                <MapDisplay latitude={latitude} longitude={longitude}/>
-            </main>
-        </>
+            <MapDisplay latitude={latitude} longitude={longitude}/>
+        </main>
     )
 }
