@@ -3,6 +3,7 @@ import IPAddressSearchField from "@/components/IPAddressSearchField";
 import ResultInformationContainer from "@/components/ResultInformationContainer";
 import dynamic from "next/dynamic";
 import Coordinates from "@/types/Coordinates";
+import ResultData from "@/types/ResultData";
 
 export default function Home() {
     const [coordinates, setCoordinates] = useState<Coordinates>({
@@ -10,7 +11,7 @@ export default function Home() {
         longitude: 0
     })
 
-    const [resultData, setResultData] = useState({
+    const [resultData, setResultData] = useState<ResultData>({
         IPAddress: "-",
         location: "-",
         timezone: "-",
